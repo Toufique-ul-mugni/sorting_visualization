@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="heading">
+        <h1>SORT IT</h1>
+    </div>
+    <div id="main">
+        <div class="grid"></div>
+        <div class="temp-box" id="tempBox">Temp: <span id="tempValue"></span></div>
+        <div class="all_btn">
+            <div id="btn">
+                <button class="btn" id="btn1">Bubble Sort</button>
+                <button class="btn" id="btn2">Insertion Sort</button>
+                <button class="btn" id="btn3">Selection Sort</button>
+            </div>
+            <button id="reset">Reset</button>
+        </div>
+        <!-- Legend Section -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="color-box exchange"></div>
+                <span>Unsorted Element</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box sorted"></div>
+                <span>Sorted Element</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box empty"></div>
+                <span>Temporary Empty Position</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box yellow"></div>
+                <span>Current Minimum</span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
