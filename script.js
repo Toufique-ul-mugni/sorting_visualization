@@ -80,18 +80,22 @@ function resetPage() {
 // Bubble Sort function
 function bubble_sort() {
     disableButtons(); // Disable all buttons
-    heading.innerHTML="BUBBLE SORT";
-    swapCount=0;
+    heading.innerHTML = "BUBBLE SORT";
+    swapCount = 0;
+
     for (let i = 0; i < squares.length - 1; i++) {
         let alreadySorted = true;
+
         for (let j = 0; j < (squares.length - i - 1); j++) {
             let timeoutId1 = setTimeout(() => {
                 if (j > 0) {
                     squares[j - 1].classList.remove('exchange');
                     squares[j].classList.remove('exchange');
                 }
+
                 squares[j].classList.add('exchange');
                 squares[j + 1].classList.add('exchange');
+
                 if (parseInt(squares[j].innerHTML) > parseInt(squares[j + 1].innerHTML)) {
                     let timeoutId2 = setTimeout(() => {
                         let temp = squares[j].innerHTML;
@@ -106,6 +110,8 @@ function bubble_sort() {
             timeouts.push(timeoutId1);
             timeout += 2000;
         }
+        
+        timeout += 1000;
         let timeoutId3 = setTimeout(() => {
             squares[squares.length - i - 2].classList.remove('exchange');
             squares[squares.length - i - 1].classList.add('sorted');
@@ -119,12 +125,23 @@ function bubble_sort() {
         }, timeout);
         timeouts.push(timeoutId4);
     }
+
+    // Add a small delay after turning the first index green to ensure the visual update is complete
     let timeoutId5 = setTimeout(() => {
         squares[0].classList.add("sorted");
-        alert(`Bubble Sort completed with ${swapCount} swaps.`);
     }, timeout);
+
+    // Delay the alert after the final sorting visual update
+    timeout += 1000;
+    let timeoutId6 = setTimeout(() => {
+        alert(`Bubble Sort completed with ${swapCount} swaps.`);
+        enableButtons(); // Re-enable buttons after sorting is complete
+    }, timeout);
+
     timeouts.push(timeoutId5);
+    timeouts.push(timeoutId6);
 }
+
 
 // Add event listener for Bubble Sort
 btn1.addEventListener('click', () => {
